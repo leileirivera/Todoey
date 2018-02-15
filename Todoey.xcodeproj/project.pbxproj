@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		888C34D0F75109A49354D79E /* Pods_Todoey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD978F8AB02660BDD2F8861F /* Pods_Todoey.framework */; };
+		E103BC1A2032A62000612C5A /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E103BC192032A62000612C5A /* Item.swift */; };
+		E103BC1C2032A62B00612C5A /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = E103BC1B2032A62B00612C5A /* Category.swift */; };
 		E16689FD202D512E00E4316F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16689FC202D512E00E4316F /* AppDelegate.swift */; };
 		E16689FF202D512E00E4316F /* ToDoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16689FE202D512E00E4316F /* ToDoListViewController.swift */; };
 		E1668A02202D512E00E4316F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1668A00202D512E00E4316F /* Main.storyboard */; };
 		E1668A04202D512E00E4316F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1668A03202D512E00E4316F /* Assets.xcassets */; };
 		E1668A07202D512E00E4316F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1668A05202D512E00E4316F /* LaunchScreen.storyboard */; };
-		E1C98C252031099F00632123 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E1C98C232031099F00632123 /* DataModel.xcdatamodeld */; };
 		E1C98C272031209E00632123 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C98C262031209E00632123 /* CategoryViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -21,6 +22,8 @@
 		796FD844A85EAF6E4C99522C /* Pods-Todoey.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Todoey.release.xcconfig"; path = "Pods/Target Support Files/Pods-Todoey/Pods-Todoey.release.xcconfig"; sourceTree = "<group>"; };
 		AD978F8AB02660BDD2F8861F /* Pods_Todoey.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Todoey.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0982F81CB7B1B5FB741001B /* Pods-Todoey.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Todoey.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Todoey/Pods-Todoey.debug.xcconfig"; sourceTree = "<group>"; };
+		E103BC192032A62000612C5A /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		E103BC1B2032A62B00612C5A /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		E16689F9202D512E00E4316F /* Todoey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todoey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E16689FC202D512E00E4316F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E16689FE202D512E00E4316F /* ToDoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewController.swift; sourceTree = "<group>"; };
@@ -28,7 +31,6 @@
 		E1668A03202D512E00E4316F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E1668A06202D512E00E4316F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E1668A08202D512E00E4316F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E1C98C242031099F00632123 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		E1C98C262031209E00632123 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CategoryViewController.swift; path = Todoey/Controller/CategoryViewController.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -64,7 +66,8 @@
 		E1127B08202D7400008230BE /* Data Model */ = {
 			isa = PBXGroup;
 			children = (
-				E1C98C232031099F00632123 /* DataModel.xcdatamodeld */,
+				E103BC1B2032A62B00612C5A /* Category.swift */,
+				E103BC192032A62000612C5A /* Item.swift */,
 			);
 			path = "Data Model";
 			sourceTree = "<group>";
@@ -72,8 +75,8 @@
 		E1127B09202D7413008230BE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				E16689FE202D512E00E4316F /* ToDoListViewController.swift */,
 				E1C98C262031209E00632123 /* CategoryViewController.swift */,
+				E16689FE202D512E00E4316F /* ToDoListViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -257,10 +260,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E103BC1A2032A62000612C5A /* Item.swift in Sources */,
 				E1C98C272031209E00632123 /* CategoryViewController.swift in Sources */,
-				E1C98C252031099F00632123 /* DataModel.xcdatamodeld in Sources */,
 				E16689FF202D512E00E4316F /* ToDoListViewController.swift in Sources */,
 				E16689FD202D512E00E4316F /* AppDelegate.swift in Sources */,
+				E103BC1C2032A62B00612C5A /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,19 +451,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		E1C98C232031099F00632123 /* DataModel.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				E1C98C242031099F00632123 /* DataModel.xcdatamodel */,
-			);
-			currentVersion = E1C98C242031099F00632123 /* DataModel.xcdatamodel */;
-			path = DataModel.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = E16689F1202D512E00E4316F /* Project object */;
 }
