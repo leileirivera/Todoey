@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class ToDoListViewController: UITableViewController {
+class ToDoListViewController: SwipeTableViewController {
     
     let realm = try! Realm()
     var todoItems: Results<Item>?
@@ -20,8 +20,6 @@ class ToDoListViewController: UITableViewController {
         }
     }
     
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -34,8 +32,8 @@ class ToDoListViewController: UITableViewController {
     //Mark - Tableview Datasource Methods
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoItemCell", for: indexPath)
-        
+        let cell = super.tableView(tableView, cellForRowAt: indexPath)
+
         if let item = todoItems?[indexPath.row] {
         
             cell.textLabel?.text = item.title
@@ -73,7 +71,7 @@ class ToDoListViewController: UITableViewController {
         
     }
     
-    //Mark - Add New Itesm
+    //Mark - Add New Items
     @IBAction func addButtonPressed(_ sender: Any) {
         
         var textField = UITextField()
@@ -98,9 +96,6 @@ class ToDoListViewController: UITableViewController {
                 self.tableView.reloadData()
             }
         
-        
-        
-        
         alert.addTextField { (alertTextField) in
             alertTextField.placeholder = "Create new item"
             textField = alertTextField
@@ -117,9 +112,24 @@ class ToDoListViewController: UITableViewController {
     //LoadItems with = external parameter request = internal parameter & = default value if no parameters are passed
     func loadItems(){
         
-       todoItems = selectedCategory?.items.sorted(byKeyPath: "dateCreated", ascending: true)
-        
+        todoItems = selectedCategory?.items.sorted(byKeyPath: "dateCreated", ascending: true)
         tableView.reloadData()
+        
+    }
+
+    //Mark - Swipe Delete Methods
+    override func updateModel(at indexPath: IndexPath) {
+        
+        if let itemForDeletion = self.todoItems?[indexPath.row] {
+            do {
+                try self.realm.write {
+                    self.realm.delete(itemForDeletion)
+                }
+            } catch {
+                print("Error deleting category, \(error)")
+            }
+            
+        }
         
     }
     
